@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "streamparity"
+version = "0.2.0"
+description = "Research-to-production consistency testing for numerical and streaming pipelines"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = ["numpy>=1.24"]
+
+authors = [
+    {name = "Jaskaran Singh"}
+]
+
+maintainers = [
+    {name = "Jaskaran Singh"}
+]
+
+keywords = [
+    "quantitative-finance",
+    "algorithmic-trading",
+    "backtesting",
+    "lookahead-bias",
+    "streaming",
+    "numerical-computing",
+    "testing",
+    "machine-learning",
+    "time-series",
+    "reproducibility"
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Office/Business :: Financial"
+]
+
+[project.urls]
+Homepage = "https://github.com/jaskaran04/streamparity"
+Repository = "https://github.com/jaskaran04/streamparity"
+Issues = "https://github.com/jaskaran04/streamparity/issues"
+Documentation = "https://github.com/jaskaran04/streamparity#readme"
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "build", "twine"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
