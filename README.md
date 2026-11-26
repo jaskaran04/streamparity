@@ -242,7 +242,7 @@ These results demonstrate defect detection on a controlled example, not performa
 
 - Real numeric and Boolean arrays are supported. Inputs must be nonempty. Lookahead, restart and combined audits require at least two rows.
 
-- Integer and Boolean pairs compare exactly. Floating-point or mixed outputs use NumPy `isclose(actual, expected, rtol, atol, equal_nan)`.
+- Integer and Boolean outputs compare exactly when their discrete representation is preserved throughout replay. Floating-point or mixed outputs use NumPy `isclose(actual, expected, rtol, atol, equal_nan)`.
 
 - Mixed integer/floating-point comparisons may lose precision. Return matching discrete dtypes for exact decisions.
 
@@ -313,6 +313,14 @@ Passing tests provide evidence of consistency on the supplied data, scenarios an
 Future-derived features, externally fitted parameters and untested prefixes can evade lookahead checks.
 
 Fixed and randomized partitions preserve input ordering.
+
+### Known numerical limitations
+
+Mixing signed and unsigned integer output dtypes across streaming chunks may cause NumPy to promote values to floating-point representations, potentially losing precision.
+
+Use consistent output dtypes throughout replay, particularly for large integers and discrete decisions.
+
+Inconsistent output dimensions between streaming chunks may raise a concatenation exception rather than produce a structured audit failure.
 
 The current release does not support:
 
